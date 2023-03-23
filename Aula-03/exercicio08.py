@@ -27,7 +27,11 @@ def switch(age):
 while True:
     try:
         year_construction_property = int(input("Ano de construção do imóvel: "))
+        if year_construction_property < 0:
+            raise RecursionError("Não pode ser negativo")
         break
+    except RecursionError as error:
+        print("Valor inválido:", error)
     except ValueError:
         print("Por favor utilizar somente numero...")
     continue

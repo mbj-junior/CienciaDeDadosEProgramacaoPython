@@ -13,27 +13,31 @@ e apontar o percentual mínimo de lucro. Efetue a implementação em
 Python tratando exceções de dados durante a execução do programa.
 """
 
-def switch():
+def profit():
     """Function to return profit."""
     if product_price < 25:
-        return "Lucro de 100%"
+        return f"Lucro de 100% = {product_price}"
     elif (product_price >= 25) and (product_price < 100):
-        return "Lucro de 70%"
+        return f"Lucro de 70% = {product_price * 0.7}"
     elif (product_price >= 100) and (product_price < 500):
-        return "Lucro de 60%"
+        return f"Lucro de 60% = {product_price * 0.6}"
     elif (product_price >= 500) and (product_price < 1000):
-        return "Lucro de 50%"
+        return f"Lucro de 50% = {product_price * 0.5}"
     elif product_price >= 1000:
-        return "Lucro de 40%"
+        return f"Lucro de 40% = {product_price * 0.4}"
 
 while True:
     try:
         product_price = float(input("Valor do produto: "))
         if product_price == 0:
-            raise ValueError("Não pode ser 0")
+            raise RecursionError("Não pode ser 0")
         if product_price < 0:
-            raise ValueError("Não pode ser negativo")
+            raise RecursionError("Não pode ser negativo")
         break
-    except ValueError:
-        print("Por favor utilizar somente numero...")
+    except RecursionError as error:
+        print("Valor inválido:", error)
+    except ValueError as error:
+        print("Utilizar somente numeros")
     continue
+
+print(profit())

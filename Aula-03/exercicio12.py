@@ -7,10 +7,8 @@ f(x) = (4 * x**2 - 3 * x + 9)/x
 """
 def calculate():
     """Function to calculate."""
-    result = (4 * (number_x**2) - 3 * (number_x + 9))/number_x
+    result = ((4 * (number_x**2)) - (3 * (number_x + 9)))/number_x
     return result
-
-
 
 while True:
     try:
@@ -19,6 +17,8 @@ while True:
             raise ZeroDivisionError("Não pode ser 0")
     except ZeroDivisionError as error:
         print("Valor inválido:", error)
+    except ValueError as error:
+        print("Valor inválido")
     else:
         break
 
