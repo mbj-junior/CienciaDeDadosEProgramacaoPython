@@ -16,8 +16,8 @@ while True:
     try:
         number_x = float(input("Informe x: "))
         if number_x == 0:
-            raise ValueError("Não pode ser 0")
-    except ValueError as error:
+            raise ZeroDivisionError("Não pode ser 0")
+    except ZeroDivisionError as error:
         print("Valor inválido:", error)
     else:
         break
